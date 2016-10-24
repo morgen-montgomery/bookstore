@@ -18,16 +18,19 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+INSTALLED_APPS = (
     'django.contrib.admin',
+    'django.contrib.sites',
+    'registration',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'registration',
     'store',
-]
+)
+
+# SITE_ID = 1
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -113,3 +116,13 @@ STATIC_URL = '/static/'
 # Registration
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
+LOGIN_REDIRECT_URL = '/store/'
+
+# Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.sntp.EmailBackend'
+EMAIL_HOST = 'sntp.gmail.com'
+EMAIL_HOST_USER = 'morgenfett@gmail.com'
+EMAIL_HOST_PASSWORD = 'randomtestpassword'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'shakespeare@co.com'
